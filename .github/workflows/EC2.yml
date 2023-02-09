@@ -17,13 +17,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build Docker images
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: ksharma20/rimtest:steve
-
     - name: SSH into EC2
       uses: appleboy/ssh-action@master
       with:
@@ -33,7 +26,8 @@ jobs:
         script: |
           set -e
           sudo apt-get update
-          sudo apt-get install -y docker-compose
+          sudo apt-get install -y docker-compose git
+          git clone https://github.com/ksharma20/steve.git
           cd steve
           sudo docker-compose down
           sudo docker-compose up -d
