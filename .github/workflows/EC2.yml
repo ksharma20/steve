@@ -1,0 +1,39 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  EC2_HOST: ${{ secrets.EC2_HOST }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker images
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ksharma20/rimtest:steve
+
+    - name: SSH into EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.EC2_HOST }}
+        username: ec2-user
+        key: ${{ env.SSH_PRIVATE_KEY }}
+        script: |
+          set -e
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+          cd <path_to_your_app_on_EC2>
+          sudo docker-compose down
+          sudo docker-compose up -d
