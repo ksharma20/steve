@@ -34,6 +34,6 @@ jobs:
           set -e
           sudo apt-get update
           sudo apt-get install -y docker-compose
-          cd <path_to_your_app_on_EC2>
+          cd steve
           sudo docker-compose down
           sudo docker-compose up -d
