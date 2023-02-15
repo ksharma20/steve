@@ -6,17 +6,17 @@
     <version>3.5.0</version>
     <packaging>jar</packaging>
 
-    <name>SteVe</name>
-    <description>SteckdosenVerwaltung</description>
+    <name>Rimone</name>
+    <description>Charge</description>
 
-    <organization>
+    <!-- <organization>
         <name>SteVe Community Team</name>
         <url>https://github.com/steve-community/steve</url>
-    </organization>
+    </organization> -->
 
-    <inceptionYear>2013</inceptionYear>
+    <inceptionYear>2022</inceptionYear>
 
-    <developers>
+    <!-- <developers>
         <developer>
             <name>Sevket Goekay</name>
             <email>sevketgokay@gmail.com</email>
@@ -29,7 +29,7 @@
             <name>GNU General Public License (GPL)</name>
             <url>http://www.gnu.org/licenses/gpl.html</url>
         </license>
-    </licenses>
+    </licenses> -->
 
     <properties>
         <java.version>11</java.version>

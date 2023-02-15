@@ -48,13 +48,13 @@ public class ApiDocsConfiguration {
 
     @Bean
     public Docket apiDocs() {
-        String title = "SteVe REST API Documentation";
+        String title = "Rimone REST API Documentation";
 
         var apiInfo = new ApiInfoBuilder()
             .title(title)
             .description(title)
             .license("GPL-3.0")
-            .licenseUrl("https://github.com/steve-community/steve/blob/master/LICENSE.txt")
+            // .licenseUrl("https://github.com/steve-community/steve/blob/master/LICENSE.txt")
             .version(SteveConfiguration.CONFIG.getSteveVersion())
             .build();
 
